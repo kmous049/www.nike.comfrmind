@@ -1,0 +1,214 @@
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"Nike Futura ND","weight":"400","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'Nike Futura ND';
+  src: url('https://www.nike.com/static/ncss/5.0/dotcom/fonts/Nike-Futura-ot-300.woff2') format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"Nike Futura","weight":"400","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'Nike Futura';
+  src: url('https://www.nike.com/static/ncss/5.0/dotcom/fonts/Nike-Futura.woff2') format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"Helvetica Now Text","weight":"400","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'Helvetica Now Text';
+  src: url('https://www.nike.com/static/ncss/5.0/dotcom/fonts/HelveticaNowText.woff2') format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"Helvetica Now Text Medium","weight":"400","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'Helvetica Now Text Medium';
+  src: url('https://www.nike.com/static/ncss/5.0/dotcom/fonts/HelveticaNowTextMedium.woff2') format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"Helvetica Now Display Medium","weight":"400","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'Helvetica Now Display Medium';
+  src: url('https://www.nike.com/static/ncss/5.0/dotcom/fonts/HelveticaNowDisplayMedium.woff2') format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  /* @FONTWARNING[{"type":"restricted","family":"VideoJS","weight":"normal","style":"normal","allowsCrossOrigin":false}] */
+  font-family: 'VideoJS';
+  src: url('engine://font-1773273858367-vl6di30p8');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 400ms; }
+
+/* Hover link underline */
+.link-hover {
+  position: relative;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.25s ease;
+}
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Button press feedback */
+.btn-press {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.btn-press:hover { opacity: 0.85; }
+.btn-press:active { transform: scale(0.97); opacity: 0.7; }
+
+/* Image hover zoom */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 0.6s ease;
+}
+.img-zoom-container:hover img {
+  transform: scale(1.04);
+}
+
+/* Active nav link */
+.nav-active {
+  border-bottom: 2px solid white !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
